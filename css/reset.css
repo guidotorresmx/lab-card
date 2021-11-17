@@ -1,3 +1,5 @@
+/* A few helpful "resetting" rules here. Feel free to add your own and use this file in future projects. */
+
 *, *::before, *::after {
 	box-sizing: inherit;
 }
