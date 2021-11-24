@@ -1,3 +1,8 @@
+:root {
+    --grey: #CCC;
+    --magenta: #F06; 
+}
+
 body{
     font: 1em helvetica, arial, system-ui, sans-serif;
     background-color: #eee;
@@ -18,8 +23,20 @@ body{
     border-radius: .5em;
     overflow: hidden;
 }
-
-.fav{
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+  }
+  
+  #container {
+    height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+#heart {
     border:none;
     background-color: transparent;
     padding: 0;
@@ -27,8 +44,81 @@ body{
     position: absolute;
     top: 1em;
     right: 1em;
-    font-size: 1.5em;
+
+    width: 3.5em;  
+    stroke: var(--magenta);
+    fill: var(--grey);
+    stroke-dasharray: 54;
+    stroke-dashoffset: 54; 
 }
+  
+#heart.like {
+animation: 1s ease-in forwards like, 
+0.8s linear 2s 2 forwards beat;
+}
+  
+#heart.unlike {
+animation: 1s ease-out forwards unlike; 
+}
+  
+  @keyframes like {
+    0% {
+      stroke-dashoffset: 54;
+      fill: var(--grey);
+    }
+  
+    70% {
+      stroke-dashoffset: 0;
+      fill: var(--grey);
+    }
+  
+    100% {
+      stroke-dashoffset: 0;
+      fill: var(--magenta);
+    }
+  }
+  
+  @keyframes unlike {
+    0% {
+      stroke-dashoffset: 0;
+      fill: var(--magenta); 
+    }
+    
+    30% {
+      stroke-dashoffset: 0;
+      fill: var(--grey);
+    }
+    
+    100% {
+      stroke-dashoffset: 54;
+      fill: var(--grey);
+    }
+  }
+  
+  
+  @keyframes beat {
+    0% {
+      transform: scale(1, 1);
+    }
+  
+    50% {
+      transform: scale(0.9, 0.9);
+    }
+  
+    100% {
+      transform: scale(1, 1);
+    }
+  
+  }
+  
+  a {
+    position: absolute; 
+    top: 1rem; 
+    right: 1rem; 
+    color: black; 
+    text-decoration: none; 
+    border-bottom: 1px solid var(--magenta);
+  }
 
 .gallery{
     display: flex;
