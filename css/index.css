@@ -3,18 +3,52 @@ body{
     background-color: #eee;
 }
 
+.properties{
+    display: grid;
+    gap: 1em;
+    padding: 1em;
+}
+
 .property{
-    max-width: 20rem;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     background-color: #fff;
     box-shadow: #0002 0 0 8px; 
     border-radius: .5em;
     overflow: hidden;
 }
 
+.fav{
+    border:none;
+    background-color: transparent;
+    padding: 0;
+    line-height: 1;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-size: 1.5em;
+}
+
 .gallery{
+    display: flex;
+    margin: 0;
+    transform: translateX(0%);
+    transition: transform .5s;
+}
+
+.second{
+    transform: translateX(-100%);
+}
+.third{
+    transform: translateX(-200%);
+}
+
+
+.gallery img{
+ 
+    display: block;
     max-width: 100%;
-    vertical-align: center;
 }
 .cost{
     font-size: 1.5em;
@@ -26,18 +60,32 @@ body{
     font-size: 1em;
     font-weight: 400;
     margin: 0.5rem 0;
+    font-style: normal;
 }
 
 .details{
-    display: flex;
-    padding: 0;
     list-style: none;
     text-transform: uppercase;
     margin: 0.5rem 0;
+    padding: 0;
+    color: #333;
+}
+
+.details li{
+    display: inline;
+}
+
+.details li:not(:first-child)::before{
+    content: "\2022";
+    display: inline-block;
+    margin-right: .5em;
+    line-height: 1;
+    color: black;
 }
 
 .info{
     padding: 0 1em;
+    flex-grow: 1;
 }
 
 .rooms {
@@ -92,6 +140,17 @@ body{
     margin: 0;
 }
 
-
+@media screen and (min-width: 40rem){
+    .properties{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (min-width: 60rem){
+    .properties{
+        grid-template-columns: repeat(3,1fr);
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+}
 
 
